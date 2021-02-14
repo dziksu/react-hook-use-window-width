@@ -6,6 +6,10 @@
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dziksu/react-hook-use-window-width"
+  },
   "files": [
     "dist",
     "src"
@@ -20,7 +24,8 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "publish": "np"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -45,6 +50,7 @@
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "husky": "^5.0.9",
+    "np": "^7.4.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "size-limit": "^4.9.2",

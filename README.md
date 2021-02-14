@@ -7,18 +7,18 @@ React a simple hook to receive current window width using window.requestAnimatio
 Use the package manager yarn or npm to install foobar.
 
 ```bash
-npm install @react-utils/use-window-width
+npm install react-hook-use-window-width
 ```
 or
 ```bash
-yarn add @react-utils/use-window-width
+yarn add react-hook-use-window-width
 ```
 
 ## Usage
 
 ```typescript jsx
 import React from 'react';
-import useWindowWidth from '@react-utils/use-window-width';
+import useWindowWidth from 'react-hook-use-window-width';
 
 const MyComponnet: React.FC = () => {
   const width = useWindowWidth();
