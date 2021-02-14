@@ -26,6 +26,7 @@
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
+    "prepublish": "tsdx build",
     "publish": "np"
   },
   "peerDependencies": {
