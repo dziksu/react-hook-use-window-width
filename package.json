@@ -24,7 +24,7 @@
     "size": "size-limit",
     "analyze": "size-limit --why",
     "prepublish": "tsdx build",
-    "publish": "np"
+    "deploy": "np"
   },
   "engines": {
     "node": ">=10"
