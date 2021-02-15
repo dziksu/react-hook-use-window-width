@@ -1,5 +1,5 @@
 {
-  "yarn": false,
+  "yarn": true,
   "contents": "./",
   "access": "public"
 }
