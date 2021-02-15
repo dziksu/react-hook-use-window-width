@@ -1,22 +1,25 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 function useWindowWidth(): number {
   const isMounted = useRef<boolean>(true);
   const isSsr = typeof window === 'undefined';
   const [width, setWidth] = useState(isSsr ? 0 : window.innerWidth);
 
+  const handleResize = useCallback(() => {
+    if (isMounted.current) {
+      setWidth(window.innerWidth);
+    }
+  }, [setWidth]);
+
   useEffect(() => {
     window.addEventListener('resize', () => {
-      window.requestAnimationFrame(() => {
-        if (isMounted.current) {
-          setWidth(window.innerWidth);
-        }
-      });
+      window.requestAnimationFrame(handleResize);
     });
     return () => {
       isMounted.current = false;
+      window.removeEventListener('resize', handleResize);
     };
-  }, [setWidth]);
+  }, [handleResize]);
 
   return width;
 }
