@@ -14,9 +14,6 @@
     "dist",
     "src"
   ],
-  "engines": {
-    "node": ">=10"
-  },
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
@@ -29,8 +26,14 @@
     "prepublish": "tsdx build",
     "publish": "np"
   },
+  "engines": {
+    "node": ">=10"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=16.8"
   },
   "size-limit": [
     {
@@ -44,7 +47,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "yarn run test"
     }
   },
   "dependencies": {
