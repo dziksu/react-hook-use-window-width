@@ -1,4 +1,4 @@
-# React hook use-window-width
+# React hook: useWindowWidth
 
 A simple hook for React to receive current window width using `window.requestAnimationFrame` for a better performance.
 
@@ -13,7 +13,7 @@ A minimal requirements to use the package:
 
 ## Installation
 
-Use the package manager yarn or npm to install foobar.
+Use the package manager yarn or npm to install **react-hook-use-window-width**.
 
 ```bash
 npm install react-hook-use-window-width
