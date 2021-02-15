@@ -1,6 +1,6 @@
 # React hook use-window-width
 
-React a simple hook to receive current window width using window.requestAnimationFrame for a great performance.
+A simple hook for React to receive current window width using `window.requestAnimationFrame` for a better performance.
 
 ## Installation
 
@@ -29,6 +29,39 @@ const MyComponnet: React.FC = () => {
     </div>
   );
 };
+```
+
+## RAW implementation
+If you don't want to use the package, and you only need a simple hook implementation you can just copy and paste the current implementation from `/src/index.tsx`
+
+```typescript jsx
+import { useCallback, useEffect, useRef, useState } from 'react';
+
+function useWindowWidth(): number {
+  const isMounted = useRef<boolean>(true);
+  const isSsr = typeof window === 'undefined';
+  const [width, setWidth] = useState(isSsr ? 0 : window.innerWidth);
+
+  const handleResize = useCallback(() => {
+    if (isMounted.current) {
+      setWidth(window.innerWidth);
+    }
+  }, [setWidth]);
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      window.requestAnimationFrame(handleResize);
+    });
+    return () => {
+      isMounted.current = false;
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [handleResize]);
+
+  return width;
+}
+
+export default useWindowWidth;
 ```
 
 ## Contributing
