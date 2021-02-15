@@ -2,6 +2,15 @@
 
 A simple hook for React to receive current window width using `window.requestAnimationFrame` for a better performance.
 
+## Requirements
+A minimal requirements to use the package:
+
+```json
+{
+  "react": ">=16.8"
+}
+```
+
 ## Installation
 
 Use the package manager yarn or npm to install foobar.
