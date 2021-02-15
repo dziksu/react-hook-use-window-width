@@ -2,7 +2,7 @@
   "name": "react-hook-use-window-width",
   "author": "Benjamin Rast",
   "module": "dist/use-window-width.esm.js",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
