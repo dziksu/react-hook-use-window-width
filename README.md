@@ -1,6 +1,6 @@
 # React hook: useWindowWidth
 
-A simple hook for React to receive current window width using `window.requestAnimationFrame` for a better performance.
+A simple hook for React to receive current window width using `ResizeObserver` for a better performance.
 
 ## Requirements
 A minimal requirements to use the package:
@@ -45,6 +45,7 @@ If you don't want to use the package, and you only need a simple hook implementa
 
 ```typescript jsx
 import { useCallback, useEffect, useRef, useState } from 'react';
+import ResizeObserver from 'resize-observer-polyfill';
 
 function useWindowWidth(): number {
   const isMounted = useRef<boolean>(true);
@@ -58,12 +59,16 @@ function useWindowWidth(): number {
   }, [setWidth]);
 
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      window.requestAnimationFrame(handleResize);
-    });
+    const observer = new ResizeObserver(handleResize);
+
+    const element = window.document.querySelector('html');
+    if(!element) return;
+    observer.observe(element)
+
     return () => {
       isMounted.current = false;
-      window.removeEventListener('resize', handleResize);
+      if(!element) return;
+      observer.unobserve(element)
     };
   }, [handleResize]);
 

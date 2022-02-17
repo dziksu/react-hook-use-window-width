@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import ResizeObserver from 'resize-observer-polyfill';
 
 function useWindowWidth(): number {
   const isMounted = useRef<boolean>(true);
@@ -12,12 +13,16 @@ function useWindowWidth(): number {
   }, [setWidth]);
 
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      window.requestAnimationFrame(handleResize);
-    });
-    return () => {
+    const observer = new ResizeObserver(handleResize);
+
+    const element = window.document.querySelector('html');
+    if (!element) return;
+    observer.observe(element);
+
+    return (): void => {
       isMounted.current = false;
-      window.removeEventListener('resize', handleResize);
+      if (!element) return;
+      observer.unobserve(element);
     };
   }, [handleResize]);
 
