@@ -1,11 +1,10 @@
 import { renderHook } from '@testing-library/react-hooks';
 import useWindowWidth from '../src/index';
 
-
 beforeAll(() => {
-  global.ResizeObserver = require('resize-observer-polyfill')
-  window.ResizeObserver = require('resize-observer-polyfill')
-})
+  global.ResizeObserver = require('resize-observer-polyfill');
+  window.ResizeObserver = require('resize-observer-polyfill');
+});
 
 describe('it', () => {
   it('useWindowWidth return default global innerWidth value as 1024', () => {

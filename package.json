@@ -1,7 +1,7 @@
 {
   "name": "react-hook-use-window-width",
   "author": "Benjamin Rast",
-  "module": "dist/use-window-width.esm.js",
+  "module": "dist/react-hook-use-window-width.esm.js",
   "version": "2.0.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -20,6 +20,7 @@
     "test": "tsdx test --passWithNoTests",
     "test:watch": "tsdx test --watch",
     "lint": "tsdx lint",
+    "lint:fix": "tsdx lint --fix",
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
@@ -37,11 +38,11 @@
   },
   "size-limit": [
     {
-      "path": "dist/use-window-width.cjs.production.min.js",
+      "path": "dist/react-hook-use-window-width.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/use-window-width.esm.js",
+      "path": "dist/react-hook-use-window-width.esm.js",
       "limit": "10 KB"
     }
   ],

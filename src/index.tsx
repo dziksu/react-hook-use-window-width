@@ -16,13 +16,13 @@ function useWindowWidth(): number {
     const observer = new ResizeObserver(handleResize);
 
     const element = window.document.querySelector('html');
-    if(!element) return;
-    observer.observe(element)
+    if (!element) return;
+    observer.observe(element);
 
-    return () => {
+    return (): void => {
       isMounted.current = false;
-      if(!element) return;
-      observer.unobserve(element)
+      if (!element) return;
+      observer.unobserve(element);
     };
   }, [handleResize]);
 
